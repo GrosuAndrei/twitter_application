@@ -1,64 +1,33 @@
 package ro.Twitter_app.model;
 
+import jakarta.persistence.*;
+import lombok.Data;
+import lombok.Generated;
+
 import java.time.LocalDate;
-import java.util.ArrayList;
-
+import java.util.*;
+@Data
+@Entity
+@Table(name="POSTS")
 public class Post {
-    private String message;
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name="post_id", nullable = false)
+    private Long postId;
+
+    @Column(name="post_message", nullable = false)
+    private String postMessage;
+
+    @Column(name="posted", nullable = false)
     private LocalDate date;
-    private Integer UserId;
-    private ArrayList<Like> likes=new ArrayList<Like>();
 
-    private ArrayList<Reply> replies=new ArrayList<Reply>();
-    public ArrayList<Like> getLikes() {
-        return likes;
-    }
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name="user_id")
+    private User user;
 
-    public Integer getUserId() {
-        return UserId;
-    }
+    @OneToMany(fetch = FetchType.EAGER, mappedBy = "post")
+    private List<Like> likes;
 
-    public void setUserId(Integer userId) {
-        UserId = userId;
-    }
-
-    public String getMessage() {
-        return message;
-    }
-
-    public void setMessage(String message) {
-        this.message = message;
-    }
-
-    public LocalDate getDate() {
-        return date;
-    }
-
-    public void setDate(LocalDate date) {
-        this.date = date;
-    }
-
-    @Override
-    public String toString() {
-        return "Post{" +
-                "message='" + message + '\'' +
-                ", date=" + date +
-                ", UserId=" + UserId +
-                ", likes=" + likes +
-                '}';
-    }
-
-    public ArrayList<Reply> getReplies() {
-        return replies;
-    }
-
-    public void LikedPost(Like like)
-    {
-        likes.add(like);
-    }
-    public void replyedPost(Reply reply)
-    {
-        replies.add(reply);
-    }
-
+    @OneToMany(fetch = FetchType.EAGER, mappedBy = "post")
+    private List<Reply> replies;
 }

@@ -9,7 +9,7 @@ import ro.Twitter_app.repository.PostRepository;
 import java.util.List;
 
 @Service
-public class PostServiceImpl {
+public class PostServiceImpl implements PostService{
     private final PostRepository postRepository;
     @Autowired
     public PostServiceImpl(PostRepository postRepository)
@@ -17,31 +17,5 @@ public class PostServiceImpl {
         this.postRepository=postRepository;
     }
 
-    public void createNewPost(Post post)
-    {
-        postRepository.createPost(post);
-    }
 
-    public List<Post> getOwnPosts()
-    {
-        return postRepository.getOwnListOfPosts();
-    }
-
-    public List<Post> getFeed()
-    {
-        return postRepository.getFeed();
-    }
-    public void selectPost(Post post)
-    {
-        postRepository.selectPost(post);
-    }
-
-    public void setCurrentUser(User currentUser)
-    {
-        postRepository.setCurrentUser(currentUser);
-    }
-    public Post getCurrentPost()
-    {
-        return postRepository.getCurrentPost();
-    }
 }

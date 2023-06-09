@@ -8,7 +8,7 @@ import ro.Twitter_app.model.User;
 import ro.Twitter_app.repository.LikeRepository;
 
 @Service
-public class LikeServiceImpl {
+public class LikeServiceImpl implements LikeService {
     private final LikeRepository likeRepository;
 
     @Autowired
@@ -17,19 +17,5 @@ public class LikeServiceImpl {
         this.likeRepository=likeRepository;
     }
 
-    public void likePost()
-    {
-        likeRepository.like_a_post();
-    }
-
-    public void setCurrentPost(Post currentPost)
-    {
-        likeRepository.setCurrentPost(currentPost);
-    }
-
-    public void setCurrentUser(User currentUser)
-    {
-        likeRepository.setCurrentUser(currentUser);
-    }
 
 }

@@ -1,94 +1,46 @@
 package ro.Twitter_app.model;
 
-import java.util.ArrayList;
-import java.util.List;
 
+import jakarta.persistence.*;
+import lombok.Data;
+import java.util.*;
+@Data
+@Entity
+@Table(name="USERS")
 public class User {
 
-    private int id;
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name="user_id", nullable = false)
+    private Long userId;
 
+    @Column(name="user_name", nullable = false, unique = true)
     private String userName;
+
+    @Column(name="first_name", nullable = false)
     private String firstName;
 
+    @Column(name="last_name", nullable = false)
     private String lastName;
 
+    @Column(name="email", nullable = false, unique = true)
     private String email;
 
+    @Column(name="password", nullable = false)
     private String password;
 
-    private ArrayList<User> following=new ArrayList<User>();
-    public String getUserName() {
-        return userName;
-    }
+    @OneToMany(fetch = FetchType.EAGER)
+    private List<User> following;
 
-    public void setUserName(String userName) {
-        this.userName = userName;
-    }
+    @OneToMany(fetch = FetchType.EAGER)
+    private List<User> followers;
 
-    public int getId() {
-        return id;
-    }
+    @OneToMany(fetch = FetchType.EAGER, mappedBy = "user")
+    private List<Post> posts;
 
-    public void setId(int id) {
-        this.id = id;
-    }
+    @OneToMany(fetch = FetchType.EAGER, mappedBy = "user")
+    private List<Reply> replies;
 
-    public String getFirstName() {
-        return firstName;
-    }
-
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
-    }
-
-    public String getLastName() {
-        return lastName;
-    }
-
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
-    public List<User> getFollowing() {
-        return following;
-    }
-
-
-    @Override
-    public String toString() {
-        return "User{" +
-                "id=" + id +
-                ", userName='" + userName + '\'' +
-                ", firstName='" + firstName + '\'' +
-                ", lastName='" + lastName + '\'' +
-                ", email='" + email + '\'' +
-                ", password='" + password + '\'' +
-                '}';
-    }
-
-    public boolean samePassword(String password)
-    {
-        if(this.password.equals(password))
-            return true;
-        else
-            return false;
-    }
-
-    public void follow(User user)
-    {
-        following.add(user);
-    }
+    @OneToMany(fetch = FetchType.EAGER, mappedBy = "user")
+    private List<Like> likes;
 }

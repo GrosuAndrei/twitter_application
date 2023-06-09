@@ -17,25 +17,25 @@ public class PostController {
     @Autowired
     private UserService userService;
 
-    @PostMapping(value="/users/post", produces = MediaType.APPLICATION_JSON_VALUE)
-    public void createPost(@RequestBody Post post)
-    {
-        postService.setCurrentUser(userService.getCurrentUser());
-        postService.createNewPost(post);
-    }
-    @GetMapping(value="/users/posts/getMyPosts", produces = MediaType.APPLICATION_JSON_VALUE)
-    public void getMyPosts()
-    {
-        postService.getOwnPosts();
-    }
-    @GetMapping(value="/users/posts/getFeed", produces = MediaType.APPLICATION_JSON_VALUE)
-    public void getFeed()
-    {
-        postService.getFeed();
-    }
-    @GetMapping(value="/users/posts/currentPost", produces = MediaType.APPLICATION_JSON_VALUE)
-    public void switchToAnotherPost(@RequestBody Post post)
-    {
-        postService.selectPost(post);
-    }
+//    @PostMapping(value="/users/post", produces = MediaType.APPLICATION_JSON_VALUE)
+//    public void createPost(@RequestBody Post post)
+//    {
+//        postService.setCurrentUser(userService.getCurrentUser());
+//        postService.createNewPost(post);
+//    }
+//    @GetMapping(value="/users/posts/getMyPosts", produces = MediaType.APPLICATION_JSON_VALUE)
+//    public void getMyPosts()
+//    {
+//        postService.getOwnPosts();
+//    }
+//    @GetMapping(value="/users/posts/getFeed", produces = MediaType.APPLICATION_JSON_VALUE)
+//    public void getFeed()
+//    {
+//        postService.getFeed();
+//    }
+//    @GetMapping(value="/users/posts/currentPost", produces = MediaType.APPLICATION_JSON_VALUE)
+//    public void switchToAnotherPost(@RequestBody Post post)
+//    {
+//        postService.selectPost(post);
+//    }
 }

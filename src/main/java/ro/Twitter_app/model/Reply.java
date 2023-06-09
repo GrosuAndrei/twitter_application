@@ -1,30 +1,30 @@
 package ro.Twitter_app.model;
 
-import java.util.ArrayList;
+import jakarta.persistence.*;
+import lombok.Data;
 
+import java.util.*;
+
+@Data
+@Entity
+@Table(name="REPLIES")
 public class Reply {
-    private String message;
-    private Integer id;
-    private ArrayList<Like> likes=new ArrayList<Like>();
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name="reply_id")
+    private Long replyId;
 
-    public String getMessage() {
-        return message;
-    }
+    @Column(name="reply_message")
+    private String replyMessage;
 
-    public void setMessage(String message) {
-        this.message = message;
-    }
+    @OneToMany(fetch = FetchType.EAGER, mappedBy = "reply")
+    private List<Like> likes;
 
-    public Integer getId() {
-        return id;
-    }
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name="post_id")
+    private Post post;
 
-    public void setId(Integer id) {
-        this.id = id;
-    }
-
-    public ArrayList<Like> getLikes() {
-        return likes;
-    }
-
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name="user_id")
+    private User user;
 }
