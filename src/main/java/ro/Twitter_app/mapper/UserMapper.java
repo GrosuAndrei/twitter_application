@@ -8,10 +8,10 @@ import ro.Twitter_app.model.User;
 
 @Mapper(componentModel = "spring")
 public interface UserMapper {
-    @Mapping(target = "userId", source = "userId")
-    @Mapping(target = "userName", source = "userName")
-    @Mapping(target = "firstName", source = "firstName")
-    @Mapping(target = "lastName", source = "lastName")
+    @Mapping(target = "userid", source = "userid")
+    @Mapping(target = "username", source = "username")
+    @Mapping(target = "firstname", source = "firstname")
+    @Mapping(target = "lastname", source = "lastname")
     @Mapping(target = "email", source = "email")
     UserDTO userToUserDTO(User user);
 }

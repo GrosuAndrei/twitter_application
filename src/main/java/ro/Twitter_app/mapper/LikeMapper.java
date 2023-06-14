@@ -8,8 +8,8 @@ import ro.Twitter_app.model.Like;
 
 @Mapper(componentModel = "spring")
 public interface LikeMapper {
-    @Mapping(target = "likeId", source = "likeId")
-    @Mapping(target = "userName", source = "user.userName")
-    @Mapping(target = "postId", source = "post.postId")
+    @Mapping(target = "likeid", source = "likeid")
+    @Mapping(target = "username", source = "user.username")
+    @Mapping(target = "postid", source = "post.postid")
     LikeDTO likeToLikeDTO(Like like);
 }

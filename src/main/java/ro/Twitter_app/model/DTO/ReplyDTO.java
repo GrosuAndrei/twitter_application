@@ -4,30 +4,31 @@ import lombok.Data;
 
 @Data
 public class ReplyDTO {
-    private Long replyId;
+    private Long replyid;
     private String message;
-    private String userName;
-    private Long postId;
+    private String username;
+    private Long postid;
 
-    public ReplyDTO(Long replyId, String message, String userName) {
-        this.replyId = replyId;
+    public ReplyDTO(Long replyId, String message, String username) {
+        this.replyid = replyId;
         this.message = message;
-        this.userName = userName;
+        this.username = username;
     }
 
-    public Long getReplyId() {
-        return replyId;
+    public Long getReplyid() {
+        return replyid;
     }
 
     public String getMessage() {
         return message;
     }
 
-    public String getUserName() {
-        return userName;
+
+    public String getUsername() {
+        return username;
     }
 
-    public Long getPostId() {
-        return postId;
+    public Long getPostid() {
+        return postid;
     }
 }

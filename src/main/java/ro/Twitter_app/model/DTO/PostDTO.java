@@ -6,26 +6,30 @@ import java.time.LocalDate;
 
 @Data
 public class PostDTO {
-    private Long postId;
+    private Long postid;
     private String message;
     private LocalDate date;
-    private String userName;
+    private String username;
 
-    public PostDTO(Long postId, String message, LocalDate date) {
-        this.postId = postId;
+    public PostDTO(Long postid, String message, LocalDate date) {
+        this.postid = postid;
         this.message = message;
         this.date = date;
     }
-    public Long getPostId() {
-        return postId;
+
+    public Long getPostid() {
+        return postid;
     }
+
     public String getMessage() {
         return message;
     }
+
     public LocalDate getDate() {
         return date;
     }
-    public String getUserName() {
-        return userName;
+
+    public String getUsername() {
+        return username;
     }
 }

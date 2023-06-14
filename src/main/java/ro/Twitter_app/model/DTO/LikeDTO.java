@@ -4,24 +4,25 @@ import lombok.Data;
 
 @Data
 public class LikeDTO {
-    private Long likeId;
-    private String userName;
-    private Long postId;
+    private Long likeid;
+    private String username;
+    private Long postid;
 
-    public LikeDTO(Long likeId, String userName) {
-        this.likeId = likeId;
-        this.userName=userName;
+    public LikeDTO(Long likeid, String username) {
+        this.likeid = likeid;
+        this.username=username;
     }
 
-    public Long getLikeId() {
-        return likeId;
+
+    public Long getLikeid() {
+        return likeid;
     }
 
-    public Long getPostId() {
-        return postId;
+    public String getUsername() {
+        return username;
     }
 
-    public String getUserName() {
-        return userName;
+    public Long getPostid() {
+        return postid;
     }
 }

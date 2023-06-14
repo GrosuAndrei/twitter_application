@@ -10,10 +10,10 @@ import java.time.LocalDate;
 
 @Mapper(componentModel = "spring")
 public interface PostMapper {
-    @Mapping(target = "postId", source = "postId")
-    @Mapping(target = "message", source = "postMessage")
+    @Mapping(target = "postid", source = "postid")
+    @Mapping(target = "message", source = "postmessage")
     @Mapping(target = "date", source = "date")
-    @Mapping(target = "userName", source = "user.userName")
+    @Mapping(target = "username", source = "user.username")
     PostDTO postToPostDTO(Post post);
 
 }

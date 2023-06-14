@@ -9,7 +9,7 @@ import lombok.Data;
 public class Like {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long likeId;
+    private Long likeid;
 
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name="post_id")
@@ -18,9 +18,5 @@ public class Like {
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name="user_id")
     private User user;
-
-    @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name="reply_id")
-    private User reply;
 
 }

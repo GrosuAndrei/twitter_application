@@ -16,13 +16,13 @@ public class UserUtil {
         String password = partialUser.get("password");
         if(userName !=null)
         {
-            user.setUserName(userName);
+            user.setUsername(userName);
         }
         if (firstName != null) {
-            user.setFirstName(firstName);
+            user.setFirstname(firstName);
         }
         if (lastName != null) {
-            user.setLastName(lastName);
+            user.setLastname(lastName);
         }
         if (email != null) {
             user.setEmail(email);

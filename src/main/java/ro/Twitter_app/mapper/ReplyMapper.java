@@ -8,9 +8,9 @@ import ro.Twitter_app.model.Reply;
 
 @Mapper(componentModel = "spring")
 public interface ReplyMapper {
-    @Mapping(target = "replyId", source = "replyId")
-    @Mapping(target = "message", source = "replyMessage")
-    @Mapping(target = "userName", source = "user.userName")
-    @Mapping(target = "postId", source = "post.postId")
+    @Mapping(target = "replyid", source = "replyid")
+    @Mapping(target = "message", source = "replymessage")
+    @Mapping(target = "username", source = "user.username")
+    @Mapping(target = "postid", source = "post.postid")
     ReplyDTO replyToReplyDTO(Reply reply);
 }

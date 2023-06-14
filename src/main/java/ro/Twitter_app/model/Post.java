@@ -13,10 +13,10 @@ public class Post {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name="post_id", nullable = false)
-    private Long postId;
+    private Long postid;
 
     @Column(name="post_message", nullable = false)
-    private String postMessage;
+    private String postmessage;
 
     @Column(name="posted", nullable = false)
     private LocalDate date;
